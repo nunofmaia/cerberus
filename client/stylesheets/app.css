@@ -49,3 +49,11 @@ header {
 .padded {
     padding: 20px;
 }
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 100%;
+    margin: 0 auto;
+}
