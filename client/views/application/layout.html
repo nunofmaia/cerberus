@@ -1,0 +1,14 @@
+<template name="layout">
+    <nav id="menu">
+    </nav>
+    <div id="container">
+        <header>
+        <button id="menu-button" class="button" style="
+                border: 0; background: url('images/menu.svg') no-repeat center center; height: 40px; width: 40px;
+                "></button>
+        </header>
+        <div id="content">
+            {{yield}}
+        </div>
+    </div>
+</template>
