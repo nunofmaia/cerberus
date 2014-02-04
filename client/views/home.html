@@ -1,2 +1,5 @@
 <template name="home">
+    {{#if currentUser}}
+        <h1 class="padded">{{currentUser.profile.name}}</h1>
+    {{/if}}
 </template>

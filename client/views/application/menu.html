@@ -1,0 +1,7 @@
+<template name="menu">
+    <nav id="menu">
+        {{#if currentUser}}
+            <a href="{{pathFor 'logout'}}">Logout</a>
+        {{/if}}
+    </nav>
+</template>

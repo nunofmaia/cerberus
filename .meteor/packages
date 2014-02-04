@@ -10,3 +10,5 @@ preserve-inputs
 iron-router
 http
 jquery
+accounts-base
+accounts-password
