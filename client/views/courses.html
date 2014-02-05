@@ -1,10 +1,6 @@
 <template name="courses">
     <h2>User:</h2>
-    {{#each userCourses}}
-        <p>{{name}}</p>
-    {{/each}}
-    <h2>All:</h2>
     {{#each courses}}
-        <p>{{name}}</p>
+    <a href="{{pathFor 'questionsList' }}">{{name}}</a>
     {{/each}}
 </template>
