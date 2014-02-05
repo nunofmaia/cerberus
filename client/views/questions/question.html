@@ -6,9 +6,13 @@
         <p>{{body}}</p>
     </div>
     <div class="question-info">
-        <p>asked by {{author}} on {{date}}</p>
+        <p>asked by {{authorName}} on {{date}}</p>
     </div>
     <div class="question-answers">
         {{> answersList}}
+    </div>
+
+    <div class="">
+        {{> newAnswer}}
     </div>
 </template>

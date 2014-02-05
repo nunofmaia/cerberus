@@ -4,7 +4,7 @@ Template.newQuestion.events({
         var post = {
             title: $(e.target).find('[name=title]').val(),
             body: $(e.target).find('[name=body]').val(),
-            author: 'John doe',
+            authorId: Meteor.userId(),
             date: new Date()
         }
 

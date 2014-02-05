@@ -1,0 +1,11 @@
+<template name="newAnswer">
+    <div class="answer-creation">
+        <form action="{{pathFor 'answer'}}">
+            <div class="form-element">
+                <label class="form-label" for="body">answer</label>
+                <textarea name="body" type="text" value="" />
+            </div>
+            <input type="submit" value="submit" class="btn" />
+        </form>
+    </div>
+</template>
