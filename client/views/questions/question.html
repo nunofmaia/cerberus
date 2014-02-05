@@ -7,12 +7,13 @@
     </div>
     <div class="question-info">
         <p>asked by {{authorName}} on {{date}}</p>
+        <p>course: {{courseName}}</p>
     </div>
     <div class="question-answers">
         {{> answersList}}
     </div>
 
-    <div class="">
-        {{> newAnswer}}
+    <div clas="new-answer">
+        <a href="{{pathFor 'newAnswer'}}">Answer now!</a>
     </div>
 </template>

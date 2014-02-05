@@ -11,6 +11,6 @@ Template.newAnswer.events({
         }
 
         Answers.insert(answer);
-        Router.go('question', { _id: template.data._id });
+        Router.go('question', template.data);
     }
 });
