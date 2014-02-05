@@ -14,9 +14,11 @@ Meteor.methods({
       var userCourses = [];
       _.map(courses, function(course) {
         var c = Courses.findOne({ name: course.name });
-        if (c) {
-          userCourses.push(c._id);
-        }
+            if (c) {
+              userCourses.push(c._id);
+            }
+        });
+
       _.extend(person, {
         points: 0,
         ranking: 0,
@@ -27,19 +29,17 @@ Meteor.methods({
         badges: []
       });
 
-      person.courses = userCourses;
-
       if (!user) {
         Accounts.createUser({
           username: person.username,
           email: person.email,
           password: 'cerberus',
           profile: person
-      });
-    }
+        });
+      }
 
     return person.username;
-}
+    }
 });
 
 function processCourses() {
