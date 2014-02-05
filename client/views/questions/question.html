@@ -1,0 +1,14 @@
+<template name="question">
+    <div class="question-title">
+        <h1>{{title}}?</h1>
+    </div>
+    <div class="question-body">
+        <p>{{body}}</p>
+    </div>
+    <div class="question-info">
+        <p>asked by {{author}} on {{date}}</p>
+    </div>
+    <div class="question-answers">
+        {{> answersList}}
+    </div>
+</template>

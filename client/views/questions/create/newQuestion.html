@@ -1,0 +1,16 @@
+<template name="newQuestion">
+    <div class="question-creation">
+        <form action="{{pathFor 'question'}}">
+            <div class="form-element">
+                <label class="form-label" for="title">Title</label>
+                <input name="title" type="text" value="" placeholder="question's title" />
+            </div>
+
+            <div class="form-element">
+                <label class="form-label" for="body">Question</label>
+                <textarea name="body" type="text" value="" />
+            </div>
+            <input type="submit" value="submit" class="btn" />
+        </form>
+    </div>
+</template>
