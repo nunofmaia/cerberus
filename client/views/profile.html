@@ -1,0 +1,10 @@
+<template name="profile">
+    <div class="profile-image"></div>
+    <h1>{{currentUser.profile.name}}</h1>
+    <h3>{{currentUser.profile.email}}</h3>
+    <p>{{currentUser.profile.points}} points,
+        {{currentUser.profile.questions.length}} questions,
+        {{currentUser.profile.answers.length}} answers,
+        {{currentUser.profile.ranking}} ranking
+        </p>
+</template>
