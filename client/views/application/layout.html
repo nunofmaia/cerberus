@@ -5,10 +5,14 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle">
+                        {{#if historyEmpty}}
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        {{else}}
+                        <span class="icon-bar" style="margin: 6px 0;"></span>
+                        {{/if}}
                     </button>
                     <!-- <a class="navbar-brand" href="#">Cerberus</a> -->
                 </div>
