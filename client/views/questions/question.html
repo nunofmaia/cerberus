@@ -1,5 +1,21 @@
 <template name="question">
-    <div class="question-title">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+      </div>
+      <div class="panel-body">
+        <p>{{body}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 text-center">
+            <a href="{{pathFor 'newAnswer'}}" class="btn btn-primary btn-block">Answer</a>
+        </div>
+        <div class="col-xs-6 text-center">
+            <a href="{{pathFor 'newAnswer'}}" class="btn btn-default btn-block">Follow</a>
+        </div>
+    </div>
+<!--     <div class="question-title">
         <h1>{{title}}?</h1>
     </div>
     <div class="question-body">
@@ -8,12 +24,8 @@
     <div class="question-info">
         <p>asked by {{authorName}} on {{date}}</p>
         <p>course: {{courseName}}</p>
-    </div>
+    </div> -->
     <div class="question-answers">
         {{> answersList}}
-    </div>
-
-    <div clas="new-answer">
-        <a href="{{pathFor 'newAnswer'}}">Answer now!</a>
     </div>
 </template>

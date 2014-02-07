@@ -1,9 +1,13 @@
 <template name="answer">
-    <div class="answer">
-        <p>{{body}}</p>
-        <p>posted on: {{date}} by {{authorName}}</p>
-        <p>positive {{upVote}} negative {{downVote}} votes</p>
-        <button id="upvote">Upvote</button>
-        <button id="downvote">Downvote</button>
+	<a href="#" class="pull-left">
+		<img class="media-object img-circle" src="http://placehold.it/64x64" alt="64x64" style="width: 64px; height: 64px;">
+	</a>
+    <div class="media-body">
+    	<h4 class="media-heading">{{authorName}}</h4>
+     	<p>{{body}}</p>
+     	<p>posted on: {{date}}</p>
+     	<p>positive {{upVote}} negative {{downVote}} votes</p>
+     	<button id="upvote" class="btn btn-success"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+     	<button id="downvote" class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i></button>
     </div>
 </template>

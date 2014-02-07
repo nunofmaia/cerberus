@@ -1,7 +1,9 @@
 <template name="answersList">
-    <div class="answersList">
-        {{#each answers}}
-        {{> answer}}
-        {{/each}}
-    </div>
+    <ul class="media-list" style="margin-top: 20px;">
+    	{{#each answers}}
+    	<li class="media">
+    		{{> answer}}
+    	</li>
+    	{{/each}}
+    </ul>
 </template>

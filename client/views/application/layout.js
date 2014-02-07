@@ -1,5 +1,6 @@
 Template.layout.events({
-    'click .button': function (event, template) {
+    'click .navbar-toggle': function (event, template) {
+    	event.stopPropagation();
         var container = template.find('#container');
         $(container).toggleClass('slide');
     }

@@ -1,8 +1,12 @@
 <template name="menu">
     <nav id="menu">
         {{#if currentUser}}
-            <a href="{{pathFor 'profile'}}">Profile</a>
-            <a href="{{pathFor 'logout'}}">Logout</a>
+        <div class="list-group">
+        	<a href="{{pathFor 'home'}}" class="list-group-item">Activity</a>
+        	<a href="{{pathFor 'profile'}}" class="list-group-item">Profile</a>
+        	<a href="{{pathFor 'courses'}}" class="list-group-item">Courses</a>
+        	<a href="{{pathFor 'logout'}}" class="list-group-item">Logout</a>
+        </div>
         {{/if}}
     </nav>
 </template>
