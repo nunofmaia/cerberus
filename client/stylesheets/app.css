@@ -45,4 +45,13 @@ header {
     background: white;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
+}
+
+a.navbar-brand {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    left: 0;
 }

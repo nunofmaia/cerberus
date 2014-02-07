@@ -14,5 +14,9 @@ Template.layout.events({
 Template.layout.helpers({
     'historyEmpty': function() {
         return Cerberus.isEmpty();
+    },
+
+    'pageTitle': function() {
+        return Session.get('title');
     }
 });
