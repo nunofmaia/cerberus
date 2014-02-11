@@ -7,10 +7,11 @@ Template.newAnswer.events({
             date: new Date(),
             questionId: template.data._id,
             upVote : 0,
-            downVote : 0
+            downVote : 0,
+            voters : []
         }
-
-        Answers.insert(answer);
+    
+        answer._id = Answers.insert(answer);
         Router.go('question', template.data);
     }
 });
