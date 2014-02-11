@@ -39,6 +39,14 @@ Meteor.methods({
       }
 
     return person.username;
+    },
+
+    addQuestion : function(questionID) {
+        Meteor.users.update({ _id : Meteor.userId()}, { $addToSet : { 'profile.questions' : questionID }});
+    },
+
+    addAnswer : function(answerID) {
+        Meteor.users.update({ _id : Meteor.userId()}, { $addToSet : { 'profile.answers' : answerID }});
     }
 });
 

@@ -10,7 +10,8 @@ Template.newAnswer.events({
             downVote : 0
         }
 
-        Answers.insert(answer);
+        answer._id = Answers.insert(answer);
+        Meteor.call('addAnswer', answer._id);
         Router.go('question', template.data);
     }
 });
