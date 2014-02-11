@@ -14,5 +14,9 @@ Template.answer.events({
         e.preventDefault();
         var answer = t.data;
         Answers.update({ _id: answer._id }, { $inc: { downVote: 1 } });
+    },
+    'click .img-circle': function(e, t) {
+        var answer = t.data;
+        Router.go('userProfile', { _id: answer.authorId });
     }
 });
