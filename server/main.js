@@ -15,7 +15,7 @@ Meteor.methods({
       _.map(courses, function(course) {
         var c = Courses.findOne({ name: course.name });
             if (c) {
-              userCourses.push(c._id);
+              userCourses.push(c.id);
             }
         });
 
@@ -36,6 +36,9 @@ Meteor.methods({
           password: 'cerberus',
           profile: person
         });
+      } else {
+        console.log('user exists');
+        Meteor.users.update({ _id: user._id}, { $addToSet: { 'profile.courses': { $each: userCourses } } });
       }
 
     return person.username;
@@ -43,15 +46,15 @@ Meteor.methods({
 });
 
 function processCourses() {
+  var terms = Fenix.getAcademicTerms();
+  var currentTerm = _.last(_.sortBy(_.keys(terms), function (term) { return term; }));
   var degrees = Fenix.getDegrees();
   var degrees_courses = {};
   _.map(degrees, function(degree) {
-    degrees_courses[degree.id] = Fenix.getDegreeCourses(degree.id);
+    degrees_courses[degree.id] = Fenix.getDegreeCourses(degree.id, currentTerm);
   });
 
-  var courses = _.chain(degrees_courses).values().flatten().uniq(function(item) {
-    return item.id;
-  }).value();
+  var courses = _.chain(degrees_courses).values().flatten().value();
 
   _.map(courses, function(course) {
     Courses.insert({
