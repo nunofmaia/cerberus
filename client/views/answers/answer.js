@@ -1,6 +1,12 @@
 Template.answer.helpers({
     authorName : function() {
         return Meteor.users.findOne(this.authorId).username;
+    },
+    author: function() {
+        return this.authorId === Meteor.userId();
+    },
+    accepted: function() {
+        return this.accepted ? 'accepted-answer' : '';
     }
 });
 
@@ -24,5 +30,8 @@ Template.answer.events({
     'click .img-circle': function(e, t) {
         var answer = t.data;
         Router.go('userProfile', { _id: answer.authorId });
+    },
+    'click #accept-answer': function(e, t) {
+        Answers.update({ _id: this._id }, { $set: { accepted: true } });
     }
 });

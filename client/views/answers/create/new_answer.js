@@ -8,7 +8,8 @@ Template.newAnswer.events({
             questionId: template.data._id,
             upVote : 0,
             downVote : 0,
-            voters : []
+            voters : [],
+            accepted: false
         }
 
         answer._id = Answers.insert(answer);
