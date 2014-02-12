@@ -8,12 +8,18 @@ Template.answer.events({
     'click #upvote': function (e, t) {
         e.preventDefault();
         var answer = t.data;
-        Answers.update({ _id: answer._id }, { $inc: { upVote: 1 } });
+        var userID = Meteor.user()._id;
+        if(t.data.voters.indexOf(userID)) {
+            Answers.update({ _id: answer._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
+        }
     },
     'click #downvote': function (e, t) {
         e.preventDefault();
         var answer = t.data;
-        Answers.update({ _id: answer._id }, { $inc: { downVote: 1 } });
+        var userID = Meteor.user()._id;
+        if(t.data.voters.indexOf(userID)) {
+            Answers.update({ _id: answer._id }, { $inc: { downVote: 1 }, $push : { voters : userID } });
+        }
     },
     'click .img-circle': function(e, t) {
         var answer = t.data;
