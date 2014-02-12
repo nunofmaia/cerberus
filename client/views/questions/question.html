@@ -12,7 +12,11 @@
             <a href="{{pathFor 'newAnswer'}}" class="btn btn-primary btn-block">Answer</a>
         </div>
         <div class="col-xs-6 text-center">
-            <a href="{{pathFor 'newAnswer'}}" class="btn btn-default btn-block">Follow</a>
+            {{#if followed}}
+            <button id="unfollow-question" class="btn btn-danger btn-block">Unfollow</button>
+            {{else}}
+            <button id="follow-question" class="btn btn-success btn-block">Follow</button>
+            {{/if}}
         </div>
     </div>
 <!--     <div class="question-title">

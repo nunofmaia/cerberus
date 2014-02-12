@@ -50,6 +50,12 @@ Meteor.methods({
 
     addAnswer : function(answerID) {
         Meteor.users.update({ _id : Meteor.userId()}, { $addToSet : { 'profile.answers' : answerID }});
+    },
+    followQuestion: function(questionID) {
+      Meteor.users.update({ _id: Meteor.userId() }, { $addToSet: { 'profile.followed_questions': questionID } });
+    },
+    unfollowQuestion: function(questionID) {
+      Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.followed_questions': questionID } });
     }
 });
 
