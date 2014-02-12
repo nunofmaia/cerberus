@@ -22,6 +22,7 @@ Meteor.methods({
         });
 
       _.extend(person, {
+        shortName: shortName(person.name),
         points: 0,
         ranking: 0,
         questions: [],
@@ -85,4 +86,9 @@ function processCourses() {
     });
   });
     console.log('courses done');
+}
+
+function shortName(name) {
+  var res = name.split(' ');
+  return res[0] + ' ' + res[res.length - 1];
 }

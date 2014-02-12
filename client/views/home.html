@@ -1,5 +1,5 @@
 <template name="home">
-    {{#if currentUser}}
-        <h1 class="padded">{{currentUser.profile.name}}</h1>
-    {{/if}}
+    {{#each notifications}}
+    <p class='notification'>{{message}}</p>
+    {{/each}}
 </template>
