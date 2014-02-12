@@ -1,6 +1,20 @@
 <template name="courses">
     <h2>User:</h2>
-    {{#each courses}}
-    <a href="{{pathFor 'questionsList' }}">{{name}}</a>
-    {{/each}}
+    {{#if managing}}
+    <button id="stop-manage-courses" class="btn btn-danger">Stop managing</button>
+    {{else}}
+    <button id="manage-courses" class="btn btn-danger">Manage</button>
+    {{/if}}
+    <ul>
+	    {{#each courses}}
+	    <li>
+	    	<a href="{{pathFor 'questionsList' }}">
+	    		{{name}}	
+	    	</a>
+	    	{{#if managing}}
+	    		<span class="label label-danger">Remove</span>
+	    	{{/if}}
+	    </li>
+	    {{/each}}
+    </ul>
 </template>

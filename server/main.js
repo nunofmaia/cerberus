@@ -11,6 +11,8 @@ Meteor.methods({
       var person = Fenix.getPerson();
       var user = Meteor.users.findOne({username: person.username });
       var courses = Fenix.getCourses().enrolments;
+      var terms = Fenix.getAcademicTerms();
+      var currentTerm = _.last(_.sortBy(_.keys(terms), function (term) { return term; }));
       var userCourses = [];
       _.map(courses, function(course) {
         var c = Courses.findOne({ name: course.name });
@@ -26,7 +28,8 @@ Meteor.methods({
         answers: [],
         courses: userCourses,
         followed_questions: [],
-        badges: []
+        badges: [],
+        academicTerm: currentTerm
       });
 
       if (!user) {
@@ -37,8 +40,9 @@ Meteor.methods({
           profile: person
         });
       } else {
-        console.log('user exists');
-        Meteor.users.update({ _id: user._id}, { $addToSet: { 'profile.courses': { $each: userCourses } } });
+        if (user.profile.academicTerm !== currentTerm) {
+          Meteor.users.update({ _id: user._id}, { $addToSet: { 'profile.courses': { $each: userCourses } }, academicTerm: currentTerm });
+        }
       }
 
     return person.username;
@@ -56,6 +60,9 @@ Meteor.methods({
     },
     unfollowQuestion: function(questionID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.followed_questions': questionID } });
+    },
+    unfollowCourse: function(courseID) {
+      Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.courses': courseID } });
     }
 });
 
