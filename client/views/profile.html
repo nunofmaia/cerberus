@@ -8,3 +8,15 @@
         {{currentUser.profile.ranking}} ranking
         </p>
 </template>
+
+<template name="userProfile">
+	{{#with user}}
+	    <h1>{{profile.name}}</h1>
+	    <h3>{{profile.email}}</h3>
+	    <p>{{profile.points}} points,
+	        {{profile.questions.length}} questions,
+	        {{profile.answers.length}} answers,
+	        {{profile.ranking}} ranking
+	        </p>
+    {{/with}}
+</template>
