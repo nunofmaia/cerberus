@@ -9,16 +9,40 @@ Template.answer.events({
         e.preventDefault();
         var answer = t.data;
         var userID = Meteor.user()._id;
-        if(t.data.voters.indexOf(userID)) {
+        var question = Questions.findOne(t.data.questionId);
+        if(answer.voters.indexOf(userID)) {
             Answers.update({ _id: answer._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
+            var message = Meteor.user().profile.shortName + ' voted the answer up.';
+            var route = {
+                template: 'question',
+                params: {
+                    courseId: question.courseId,
+                    _id: question._id
+                }
+            };
+            var usersIds = question.followers || [];
+            usersIds.push(answer.authorId);
+            createNotification(usersIds, message, route);
         }
     },
     'click #downvote': function (e, t) {
         e.preventDefault();
         var answer = t.data;
         var userID = Meteor.user()._id;
+        var question = Questions.findOne(t.data.questionId);
         if(t.data.voters.indexOf(userID)) {
             Answers.update({ _id: answer._id }, { $inc: { downVote: 1 }, $push : { voters : userID } });
+            var message = Meteor.user().profile.shortName + ' voted the answer down.';
+            var route = {
+                template: 'question',
+                params: {
+                    courseId: question.courseId,
+                    _id: question._id
+                }
+            };
+            var usersIds = question.followers || [];
+            usersIds.push(answer.authorId);
+            createNotification(usersIds, message, route);
         }
     },
     'click .img-circle': function(e, t) {
