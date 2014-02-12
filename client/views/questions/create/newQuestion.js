@@ -10,6 +10,7 @@ Template.newQuestion.events({
         }
 
         post._id = Questions.insert(post);
+        Meteor.call('addQuestion', post._id);
         Router.go('question', post);
     }
 });
