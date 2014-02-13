@@ -3,7 +3,8 @@ Template.answer.helpers({
         return Meteor.users.findOne(this.authorId).username;
     },
     author: function() {
-        return this.authorId === Meteor.userId();
+        var question = Questions.findOne(this.questionId);
+        return question.authorId === Meteor.userId();
     },
     accepted: function() {
         return this.accepted ? 'accepted-answer' : '';
