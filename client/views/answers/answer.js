@@ -13,11 +13,10 @@ Template.answer.helpers({
 Template.answer.events({
     'click #upvote': function (e, t) {
         e.preventDefault();
-        var answer = t.data;
-        var userID = Meteor.user()._id;
+        var userID = Meteor.userId();
         var question = Questions.findOne(t.data.questionId);
-        if(answer.voters.indexOf(userID)) {
-            Answers.update({ _id: answer._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
+        if (!_.contains(this.voters, userID) && (userID !== this.authorId)) {
+            Answers.update({ _id: this._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
             var message = Meteor.user().profile.shortName + ' voted the answer up.';
             var route = {
                 template: 'question',
@@ -27,7 +26,7 @@ Template.answer.events({
                 }
             };
             var usersIds = question.followers || [];
-            usersIds.push(answer.authorId);
+            usersIds.push(this.authorId);
             createNotification(usersIds, message, route);
         }
     },
@@ -36,7 +35,7 @@ Template.answer.events({
         var answer = t.data;
         var userID = Meteor.user()._id;
         var question = Questions.findOne(t.data.questionId);
-        if(t.data.voters.indexOf(userID)) {
+        if (!_.contains(answer.voters, userID) && Meteor.userId() !== answer.authorId) {
             Answers.update({ _id: answer._id }, { $inc: { downVote: 1 }, $push : { voters : userID } });
             var message = Meteor.user().profile.shortName + ' voted the answer down.';
             var route = {
