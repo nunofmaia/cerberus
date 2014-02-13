@@ -17,4 +17,12 @@
 	    </li>
 	    {{/each}}
     </ul>
+    <input id="search" type="search" class="form-control" value="{{query}}">
+    {{#each searchedCourses}}
+    	<li>
+    		<a href="{{pathFor 'questionsList' }}">
+    			{{name}}	
+    		</a>
+    	</li>
+    {{/each}}
 </template>

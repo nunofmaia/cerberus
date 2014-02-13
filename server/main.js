@@ -76,7 +76,9 @@ function processCourses() {
     degrees_courses[degree.id] = Fenix.getDegreeCourses(degree.id, currentTerm);
   });
 
-  var courses = _.chain(degrees_courses).values().flatten().value();
+  var courses = _.chain(degrees_courses).values().flatten().uniq(function(item) {
+    return item.name;
+  }).value();
 
   _.map(courses, function(course) {
     Courses.insert({
