@@ -12,7 +12,7 @@
 	    		{{name}}	
 	    	</a>
 	    	{{#if managing}}
-	    		<span class="label label-danger">Remove</span>
+	    		<span class="unfollow-course btn btn-danger btn-xs">Remove</span>
 	    	{{/if}}
 	    </li>
 	    {{/each}}
@@ -23,6 +23,9 @@
     		<a href="{{pathFor 'questionsList' }}">
     			{{name}}	
     		</a>
+            {{#if notFollowed}}
+            <span class="follow-course btn btn-default btn-xs">Follow</span>
+            {{/if}}
     	</li>
     {{/each}}
 </template>
