@@ -12,7 +12,9 @@ Template.courses.helpers({
         var query = Session.get('query');
         if (query && query !== '') {
             var regex = '^.*' + query + '.*$';
-            return Courses.find({ name: { $regex: regex, $options: 'i' } });
+            return Courses.find({ $or: [
+                { name: { $regex: regex, $options: 'i' } },
+                { acronym: { $regex: regex, $options: 'i' } }]});
         }
     },
     query: function() {
