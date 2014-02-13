@@ -14,7 +14,7 @@ Template.courses.helpers({
             var regex = '^.*' + query + '.*$';
             return Courses.find({ $or: [
                 { name: { $regex: regex, $options: 'i' } },
-                { acronym: { $regex: regex, $options: 'i' } }]});
+                { acronym: { $regex: regex, $options: 'i' } }]}, { limit: 10 });
         }
     },
     query: function() {
