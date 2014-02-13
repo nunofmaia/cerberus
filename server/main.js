@@ -64,6 +64,9 @@ Meteor.methods({
     },
     unfollowCourse: function(courseID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.courses': courseID } });
+    },
+    followCourse: function(courseID) {
+      Meteor.users.update({ _id: Meteor.userId() }, { $push: { 'profile.courses': courseID } });
     }
 });
 

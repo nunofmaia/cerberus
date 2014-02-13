@@ -17,6 +17,9 @@ Template.courses.helpers({
     },
     query: function() {
         return Session.get('query');
+    },
+    notFollowed: function() {
+        return !_.contains(Meteor.user().profile.courses, this.id);
     }
 });
 
@@ -30,9 +33,12 @@ Template.courses.events({
 		Session.set('managingCourses', false);
 	},
 
-	'click .label': function(e, t) {
+	'click .unfollow-course': function(e, t) {
 		Meteor.call('unfollowCourse', this.id);
 	},
+    'click .follow-course': function(e, t) {
+        Meteor.call('followCourse', this.id);
+    },
     'keyup #search': function(e, t) {
         Session.set('query', $(e.target).val());
     }
