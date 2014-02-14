@@ -1,16 +1,37 @@
 <template name="answer">
 	<div class="{{accepted}}">
-		<img class="media-object img-circle pull-left" src="http://placehold.it/64x64" alt="64x64" style="width: 64px; height: 64px;">
-		    <div class="media-body">
-		    	<h4 class="media-heading">{{authorName}}</h4>
-		     	<p>{{body}}</p>
-		     	<p>posted on: {{date}}</p>
-		     	<p>positive {{upVote}} negative {{downVote}} votes</p>
-		     	<button id="upvote" class="btn btn-success"><i class="glyphicon glyphicon-thumbs-up"></i></button>
-		     	<button id="downvote" class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-down"></i></button>
-		     	{{#if author}}
-		     	<button id="accept-answer" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Accept</button>
-		     	{{/if}}
-		    </div>
+		<div class="list card answer">
+
+		  <div class="item user-name">
+		    <h2>{{authorName}}</h2>
+		    <p>November 05, 1955</p>
+		  </div>
+
+		  <div class="item item-body">
+		    <p>
+		      {{body}}
+		    </p>
+		    <p>
+		      <a href="#" class="subdued">{{upVote}} Like</a>
+		      <a href="#" class="subdued">{{downVote}} Dislikes</a>
+		    </p>
+		  </div>
+
+		  <div class="item tabs tabs-secondary tabs-icon-left">
+		    <a id="upvote" class="tab-item" href="#">
+		      <i class="icon ion-thumbsup"></i>
+		      Like
+		    </a>
+		    <a id="downvote" class="tab-item" href="#">
+		      <i class="icon ion-thumbsdown"></i>
+		      Dislike
+		    </a>
+		    <a id="accept-answer" class="tab-item" href="#">
+		      <i class="icon ion-checkmark"></i>
+		      Accept answer
+		    </a>
+		  </div>
+
+		</div>
 	</div>
 </template>

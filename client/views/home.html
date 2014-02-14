@@ -1,5 +1,17 @@
 <template name="home">
+    <header>
+        <div class="bar bar-header">
+            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+            <div class="h1 title">Activity</div>
+        </div>
+    </header>
+    <div class="has-header scroll-content">
     {{#each notifications}}
-    <p class='notification'>{{message}}</p>
-    {{/each}}
+        <div class="card notification">
+          <div class="item item-text-wrap">
+            {{message}}
+          </div>
+        </div>
+        {{/each}}
+    </div>
 </template>

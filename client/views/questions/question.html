@@ -1,35 +1,49 @@
 <template name="question">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{title}}</h3>
-      </div>
-      <div class="panel-body">
-        <p>{{body}}</p>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-6 text-center">
-            <a href="{{pathFor 'newAnswer'}}" class="btn btn-primary btn-block">Answer</a>
+    <header>
+              <div class="bar bar-header">
+                  <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive">Back</a>
+                  <div class="h1 title">Question</div>
+              </div>
+      </header>
+    <div class="has-header scroll-content">
+      <div class="list card">
+      
+        <div class="item">
+          <h2>{{title}}</h2>
+          <p>November 05, 1955</p>
         </div>
-        <div class="col-xs-6 text-center">
-            {{#if followed}}
-            <button id="unfollow-question" class="btn btn-danger btn-block">Unfollow</button>
-            {{else}}
-            <button id="follow-question" class="btn btn-success btn-block">Follow</button>
-            {{/if}}
+      
+        <div class="item item-body">
+          <p>
+            {{body}}
+          </p>
+          <p>
+            <a href="#" class="subdued">{{authorName}}</a>
+            <a href="#" class="subdued">{{courseName}}</a>
+          </p>
         </div>
-    </div>
-<!--     <div class="question-title">
-        <h1>{{title}}?</h1>
-    </div>
-    <div class="question-body">
-        <p>{{body}}</p>
-    </div>
-    <div class="question-info">
-        <p>asked by {{authorName}} on {{date}}</p>
-        <p>course: {{courseName}}</p>
-    </div> -->
-    <div class="question-answers">
-        {{> answersList}}
+      
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="{{pathFor 'newAnswer'}}">
+            <i class="icon ion-chatbox"></i>
+            Answer
+          </a>
+              {{#if followed}}
+          <a id="unfollow-question" class="tab-item" href="#">
+            <i class="icon ion-star"></i>
+            Following
+          </a>
+              {{else}}
+              <a id="follow-question" class="tab-item" href="#">
+            <i class="icon ion-star"></i>
+            Follow
+          </a>
+              {{/if}}
+        </div>
+      
+      </div>
+      <div class="question-answers">
+          {{> answersList}}
+      </div>
     </div>
 </template>
