@@ -69,6 +69,10 @@ Meteor.methods({
     },
     followCourse: function(courseID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $push: { 'profile.courses': courseID } });
+    },
+    incPoints: function(userId, points) {
+      var user = Meteor.users.findOne(userId);
+      Meteor.users.update({ _id: userId }, { $inc: { 'profile.points': points } });
     }
 });
 
