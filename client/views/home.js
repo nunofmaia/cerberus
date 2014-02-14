@@ -1,6 +1,7 @@
 Template.home.helpers({
     notifications: function() {
-        return Notifications.find({ usersIds: Meteor.userId()});
+        //return Notifications.find({ $query: { usersIds: Meteor.userId() }, $orderby: { date : -1 }});
+        return Notifications.find({usersIds: Meteor.userId()}, {sort: {date: -1}} );
     }
 });
 

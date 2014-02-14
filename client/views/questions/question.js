@@ -12,8 +12,6 @@ Template.question.helpers({
     		return questionID === id;
     	});
 
-    	console.log(found);
-
     	return found;
     }
 });
