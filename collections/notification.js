@@ -13,6 +13,7 @@ createNotification = function(usersIds, message, route) {
 			usersIds: users,
 			message: message,
 			route: route,
+            date : new Date(),
 			read: false,
 			seen: false
 		});

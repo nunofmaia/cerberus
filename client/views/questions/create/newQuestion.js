@@ -6,7 +6,8 @@ Template.newQuestion.events({
             body : $(e.target).find('[name=body]').val(),
             authorId : Meteor.userId(),
             date : new Date(),
-            courseId : template.data._id
+            courseId : template.data._id,
+            followers: []
         }
 
         post._id = Questions.insert(post);

@@ -58,9 +58,11 @@ Meteor.methods({
     },
     followQuestion: function(questionID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $addToSet: { 'profile.followed_questions': questionID } });
+      Questions.update({ _id: questionID }, { $addToSet: { 'followers': Meteor.userId() } });
     },
     unfollowQuestion: function(questionID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.followed_questions': questionID } });
+      Questions.update({ _id: questionID }, { $pull: { 'followers': Meteor.userId() } });
     },
     unfollowCourse: function(courseID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $pull: { 'profile.courses': courseID } });
