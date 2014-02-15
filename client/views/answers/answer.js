@@ -24,6 +24,7 @@ Template.answer.events({
         var question = Questions.findOne(t.data.questionId);
         if (!_.contains(this.voters, userID) && (userID !== this.authorId)) {
             Answers.update({ _id: this._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
+            //notification
             var message = Meteor.user().profile.shortName + ' voted the answer up.';
             var route = {
                 template: 'question',
@@ -45,6 +46,7 @@ Template.answer.events({
         var question = Questions.findOne(t.data.questionId);
         if (!_.contains(answer.voters, userID) && Meteor.userId() !== answer.authorId) {
             Answers.update({ _id: answer._id }, { $inc: { downVote: 1 }, $push : { voters : userID } });
+            //notification
             var message = Meteor.user().profile.shortName + ' voted the answer down.';
             var route = {
                 template: 'question',
@@ -60,14 +62,44 @@ Template.answer.events({
     },
     'click .user-name': function(e, t) {
         var answer = t.data;
-        Router.go('userProfile', { _id: answer.authorId });
+        if(answer.authorId === Meteor.userId()) {
+            Router.go('profile', { _id: answer.authorId });
+        } else {
+            Router.go('userProfile', { _id: answer.authorId });
+        }
     },
     'click #accept-answer': function(e, t) {
         Answers.update({ _id: this._id }, { $set: { accepted: true } });
         Meteor.call('incPoints', this.authorId, 10);
+        //notification
+        var usersIds = [];
+        usersIds.push(this.authorId);
+        var question = Questions.findOne(this.questionId);
+        var message = Meteor.user().profile.shortName + ' accepted your answer.';
+        var route = {
+            template: 'question',
+            params: {
+                courseId: question.courseId,
+                _id: question._id
+            }
+        };
+        createNotification(usersIds, message, route);
     },
     'click #unaccept-answer': function(e, t) {
         Answers.update({ _id: this._id }, { $set: { accepted: false } });
         Meteor.call('incPoints', this.authorId, -10);
+        //notification
+        var usersIds = [];
+        usersIds.push(this.authorId);
+        var question = Questions.findOne(this.questionId);
+        var message = Meteor.user().profile.shortName + ' declined your answer.';
+        var route = {
+            template: 'question',
+            params: {
+                courseId: question.courseId,
+                _id: question._id
+            }
+        };
+        createNotification(usersIds, message, route);
     }
 });
