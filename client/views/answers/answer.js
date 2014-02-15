@@ -29,6 +29,7 @@ Template.answer.events({
             var usersIds = question.followers || [];
             usersIds.push(this.authorId);
             createNotification(usersIds, message, route);
+            Meteor.call('incPoints', this.authorId, 5);
         }
     },
     'click #downvote': function (e, t) {
@@ -57,5 +58,6 @@ Template.answer.events({
     },
     'click #accept-answer': function(e, t) {
         Answers.update({ _id: this._id }, { $set: { accepted: true } });
+        Meteor.call('incPoints', this.authorId, 10);
     }
 });
