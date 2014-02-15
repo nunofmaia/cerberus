@@ -8,6 +8,12 @@ Template.answer.helpers({
     },
     acceptedAnswer: function() {
         return this.accepted ? 'accepted-answer' : '';
+    },
+    photo: function() {
+        var user = Meteor.users.findOne(this.authorId);
+        if (user) {
+            return 'data:' + user.profile.photo.type + ';base64,' + user.profile.photo.data;
+        }
     }
 });
 
