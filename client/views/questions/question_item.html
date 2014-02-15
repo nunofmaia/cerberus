@@ -3,7 +3,7 @@
 		<a href="{{pathFor 'question'}}" class="question-item">
 			<div class="item">
 				<h2>{{title}}</h2>
-				<small>{{date}}</small>
+				<small>{{dateFromNow date}}</small>
 			</div>
 			<div class="item tabs tabs-secondary tabs-icon-left">
 				{{#if acceptedAnswer}}

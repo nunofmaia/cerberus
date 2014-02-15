@@ -5,7 +5,7 @@
 		  <div class="item user-name item-avatar">
 		  	<div class="mini-profile-image" style="background: url({{photo}}) no-repeat center center; background-color: #fff;background-size: 100% 100%;"></div>
 		    <h2>{{authorName}}</h2>
-		    <p>November 05, 1955</p>
+		    <p>{{dateFromNow date}}</p>
 		  </div>
 
 		  <div class="item item-body">
@@ -30,7 +30,7 @@
 		    {{#if accepted}}
 		    <a id="unaccept-answer" class="tab-item" href="#">
 		      <i class="icon ion-close"></i>
-		      Unaccept answer
+		      Decline answer
 		    </a>
 		    {{else}}
 		    <a id="accept-answer" class="tab-item" href="#">
