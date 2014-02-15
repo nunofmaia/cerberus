@@ -22,5 +22,12 @@ Template.question.events({
 	},
 	'click #unfollow-question': function(e, t) {
 		Meteor.call('unfollowQuestion', this._id);
-	}
+	},
+    'click .button-back': function() {
+        var route = Session.get('previousRoute');
+        if (route) {
+            Session.set('previousRoute', null);
+            Router.go(route.route, route.params);
+        }
+    }
 });

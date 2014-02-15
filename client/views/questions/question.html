@@ -1,18 +1,18 @@
 <template name="question">
     <header>
               <div class="bar bar-header">
-                  <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive">Back</a>
+                  <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive button-back">Back</a>
                   <div class="h1 title">Question</div>
               </div>
       </header>
     <div class="has-header scroll-content">
       <div class="list card">
-      
+
         <div class="item">
           <h2>{{title}}</h2>
           <p>November 05, 1955</p>
         </div>
-      
+
         <div class="item item-body">
           <p>
             {{body}}
@@ -22,7 +22,7 @@
             <a href="#" class="subdued">{{courseName}}</a>
           </p>
         </div>
-      
+
         <div class="item tabs tabs-secondary tabs-icon-left">
           <a class="tab-item" href="{{pathFor 'newAnswer'}}">
             <i class="icon ion-chatbox"></i>
@@ -40,7 +40,7 @@
           </a>
               {{/if}}
         </div>
-      
+
       </div>
       <div class="question-answers">
           {{> answersList}}
