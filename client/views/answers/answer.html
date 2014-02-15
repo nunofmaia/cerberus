@@ -1,5 +1,5 @@
 <template name="answer">
-	<div class="{{accepted}}">
+	<div class="{{acceptedAnswer}}">
 		<div class="list card answer">
 
 		  <div class="item user-name">
@@ -26,10 +26,18 @@
 		      <i class="icon ion-thumbsdown"></i>
 		      Dislike
 		    </a>
+		    {{#if accepted}}
+		    <a id="unaccept-answer" class="tab-item" href="#">
+		      <i class="icon ion-close"></i>
+		      Unaccept answer
+		    </a>
+		    {{else}}
 		    <a id="accept-answer" class="tab-item" href="#">
 		      <i class="icon ion-checkmark"></i>
 		      Accept answer
 		    </a>
+
+		    {{/if}}
 		  </div>
 
 		</div>

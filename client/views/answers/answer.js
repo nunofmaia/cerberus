@@ -6,7 +6,7 @@ Template.answer.helpers({
         var question = Questions.findOne(this.questionId);
         return question.authorId === Meteor.userId();
     },
-    accepted: function() {
+    acceptedAnswer: function() {
         return this.accepted ? 'accepted-answer' : '';
     }
 });
@@ -59,5 +59,9 @@ Template.answer.events({
     'click #accept-answer': function(e, t) {
         Answers.update({ _id: this._id }, { $set: { accepted: true } });
         Meteor.call('incPoints', this.authorId, 10);
+    },
+    'click #unaccept-answer': function(e, t) {
+        Answers.update({ _id: this._id }, { $set: { accepted: false } });
+        Meteor.call('incPoints', this.authorId, -10);
     }
 });
