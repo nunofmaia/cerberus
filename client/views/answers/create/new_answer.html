@@ -1,11 +1,16 @@
 <template name="newAnswer">
-    <div class="answer-creation">
-        <form action="{{pathFor 'answer'}}">
-            <div class="form-element">
-                <label class="form-label" for="body">answer</label>
-                <textarea name="body" type="text" value="" />
+	<header>
+            <div class="bar bar-header">
+                <a class="button button-clear button-assertive">Cancel</a>
+                <div class="h1 title"></div>
+                <a id="answer-question" class="button button-clear button-assertive">Answer</a>
             </div>
-            <input type="submit" value="submit" class="btn" />
-        </form>
+    </header>
+    <div class="has-header scroll-content">
+        <div class="list">
+          <label class="item item-input">
+            <textarea name="body" placeholder="Answer" rows="20"></textarea>
+          </label>
+        </div>
     </div>
 </template>

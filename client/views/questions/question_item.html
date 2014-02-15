@@ -1,9 +1,21 @@
 <template name="questionItem">
-<div class="question">
-    <a href="{{pathFor 'question'}}" >
-        <div class="question-title">
-            <h2>{{title}}?</h2>
-        </div>
-    </a>
-<div>
+	<div class="list card">
+		<a href="{{pathFor 'question'}}" class="question-item">
+			<div class="item">
+				<h2>{{title}}</h2>
+				<small>{{date}}</small>
+			</div>
+			<div class="item tabs tabs-secondary tabs-icon-left">
+				{{#if acceptedAnswer}}
+				<a class="tab-item" href="#">
+					<i class="icon ion-checkmark"></i>
+					Accepted
+				</a>
+				{{/if}}
+				<a class="tab-item" href="#">
+					{{answers.length}} answers
+				</a>
+			</div>
+		</a>
+	</div>
 </template>

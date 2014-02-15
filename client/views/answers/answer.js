@@ -1,6 +1,6 @@
 Template.answer.helpers({
     authorName : function() {
-        return Meteor.users.findOne(this.authorId).username;
+        return Meteor.users.findOne(this.authorId).profile.shortName;
     },
     author: function() {
         var question = Questions.findOne(this.questionId);
@@ -52,7 +52,7 @@ Template.answer.events({
             createNotification(usersIds, message, route);
         }
     },
-    'click .img-circle': function(e, t) {
+    'click .user-name': function(e, t) {
         var answer = t.data;
         Router.go('userProfile', { _id: answer.authorId });
     },

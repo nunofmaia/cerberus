@@ -1,9 +1,9 @@
 Template.question.helpers({
     authorName : function() {
-        return Meteor.users.findOne(this.authorId).username;
+        return Meteor.users.findOne(this.authorId).profile.shortName;
     },
     courseName : function() {
-        return Courses.findOne( { _id : this.courseId  }).name;
+        return Courses.findOne( { _id : this.courseId  }).acronym;
     },
     followed: function() {
     	var id = this._id;

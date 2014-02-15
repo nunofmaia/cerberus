@@ -1,9 +1,16 @@
 <template name="questionsList">
-    <div class="questions">
-        {{#each questions}}
-        {{> questionItem}}
-        {{/each}}
+	<header>
+	    <div class="bar bar-header">
+	        <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+	        <div class="h1 title">Questions</div>
+	        <a href="{{pathFor 'newQuestion'}}" class="button button-clear button-assertive">New</a>
+	    </div>
+	</header>
+    <div class="has-header scroll-content">
+    	<div class="questions">
+    	    {{#each questions}}
+    	    {{> questionItem}}
+    	    {{/each}}
+    	</div>
     </div>
-
-    <a href="{{pathFor 'newQuestion'}}">New question!</a>
 </template>

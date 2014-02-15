@@ -1,8 +1,8 @@
 Template.newAnswer.events({
-    'submit form': function(e, template) {
+    'click #answer-question': function(e, template) {
         e.preventDefault();
         var answer = {
-            body: $(e.target).find('[name=body]').val(),
+            body: $(template.find('[name=body]')).val(),
             authorId: Meteor.userId(),
             date: new Date(),
             questionId: template.data._id,
