@@ -6,12 +6,32 @@
         </div>
     </header>
     <div class="has-header scroll-content">
-    {{#each notifications}}
+        <h1>Feed</h1>
+        {{#each notifications}}
         <div class="card notification">
           <div class="item item-text-wrap">
             {{message}}
           </div>
         </div>
         {{/each}}
+        <h1>Ranking</h1>
+            <div class="list">
+            {{#each ranking}}
+                <a class="item ranking-person item-avatar" href="#">
+                    <div class="mini-profile-image" style="background: url({{photo}}) no-repeat center center; background-color: #fff;background-size: 100% 100%;"></div>
+                    <h2>{{profile.shortName}}</h2>
+                    <p>{{profile.points}} points</p>
+                </a>
+            {{/each}}
+            </div>
+        <h1>RAQ</h1>
+        <div class="list">
+        {{#each raq}}
+            <a class="item raq-question" href="{{pathFor 'question'}}">
+                <h2>{{title}}</h2>
+                <p>{{courseName}} &middot; {{date}}</p>
+            </a>
+        {{/each}}
+        </div>
     </div>
 </template>

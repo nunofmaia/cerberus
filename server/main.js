@@ -17,7 +17,7 @@ Meteor.methods({
       _.map(courses, function(course) {
         var c = Courses.findOne({ name: course.name });
             if (c) {
-              userCourses.push(c.id);
+              userCourses.push(c._id);
             }
         });
 

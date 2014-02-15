@@ -4,7 +4,7 @@ Template.courses.helpers({
     courses: function() {
         var user = Meteor.user();
         if (user) {
-            return Courses.find({ id: { $in: user.profile.courses }});
+            return Courses.find({ _id: { $in: user.profile.courses }});
         }
     },
     managing: function() {
@@ -23,7 +23,7 @@ Template.courses.helpers({
         return Session.get('query');
     },
     notFollowed: function() {
-        return !_.contains(Meteor.user().profile.courses, this.id);
+        return !_.contains(Meteor.user().profile.courses, this._id);
     }
 });
 
@@ -38,10 +38,10 @@ Template.courses.events({
 	},
 
 	'click .unfollow-course': function(e, t) {
-		Meteor.call('unfollowCourse', this.id);
+		Meteor.call('unfollowCourse', this._id);
 	},
     'click .follow-course': function(e, t) {
-        Meteor.call('followCourse', this.id);
+        Meteor.call('followCourse', this._id);
     },
     'keyup #search': function(e, t) {
         Session.set('query', $(e.target).val());
