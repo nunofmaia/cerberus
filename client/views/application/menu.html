@@ -5,6 +5,9 @@
         	<a href="{{pathFor 'home'}}" class="list-group-item">Activity</a>
         	<a href="{{pathFor 'profile'}}" class="list-group-item">Profile</a>
         	<a href="{{pathFor 'courses'}}" class="list-group-item">Courses</a>
+            {{#each courses}}
+            <a href="{{pathFor 'questionsList'}}" class="list-group-item">{{specialAcronym}}</a>
+            {{/each}}
         	<a href="{{pathFor 'logout'}}" class="list-group-item">Logout</a>
         </div>
         {{/if}}

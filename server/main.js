@@ -93,7 +93,8 @@ function processCourses() {
     Courses.insert({
       id: course.id,
       name: course.name,
-      acronym: course.acronym
+      acronym: course.acronym,
+      specialAcronym: specialAcron(course.name, course.acronym)
     });
   });
     console.log('courses done');
@@ -103,3 +104,20 @@ function shortName(name) {
   var res = name.split(' ');
   return res[0] + ' ' + res[res.length - 1];
 }
+
+function specialAcron(name, acron) {
+  var special = acron.replace(/[^a-zA-Z]+$/g,'');
+  if (special.length === 1) {
+    special = name;
+  }
+  // var nameS = name.split(' ');
+  // var temp = nameS[nameS.length - 1];
+  // if( temp.length < 3 | temp === 'III') {
+  //   special = special + ' ' + temp;
+  // }
+  return special;
+}
+
+
+
+
