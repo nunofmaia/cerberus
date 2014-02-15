@@ -1,15 +1,23 @@
 <template name="menu">
-    <nav id="menu">
+    <nav id="menu" class="menu menu-left">
         {{#if currentUser}}
-        <div class="list">
-        	<a href="{{pathFor 'home'}}" class="item">Activity</a>
-        	<a href="{{pathFor 'profile'}}" class="item">Profile</a>
-        	<a href="{{pathFor 'courses'}}" class="item">Courses</a>
-            {{#each courses}}
-            <a href="{{pathFor 'questionsList'}}" class="item">{{specialAcronym}}</a>
-            {{/each}}
-        	<a href="{{pathFor 'logout'}}" class="item">Logout</a>
+        <header class="bar bar-header bar-assertive">
+            <h1 class="title">Cerberus</h1>
+        </header>
+        <div class="has-header has-footer scroll-content">
+            <div class="list">
+            	<a href="{{pathFor 'home'}}" class="item">Activity</a>
+            	<a href="{{pathFor 'profile'}}" class="item">Profile</a>
+            	<a href="{{pathFor 'courses'}}" class="item">Courses</a>
+                <li class="item item-divider">Following</li>
+                {{#each courses}}
+                <a href="{{pathFor 'questionsList'}}" class="item">{{specialAcronym}}</a>
+                {{/each}}
+            </div>
         </div>
+        <footer class="bar bar-footer bar-stable">
+            <a href="{{pathFor 'logout'}}" class="button button-clear button-assertive">Logout</a>
+        </footer>
         {{/if}}
     </nav>
 </template>

@@ -15,6 +15,9 @@
             <label class="item-input-wrapper">
                 <input id="search" type="text" placeholder="Search" value="{{query}}">
             </label>
+            <button id="clear-search" class="button button-small button-clear">
+                  Clear
+            </button>
         </div>
         <div class="list">
             {{#if searchedCourses}}
@@ -25,7 +28,7 @@
             <div class="item item-button-right">
                 {{name}}
                 {{#if notFollowed}}
-                <button class="button button-clear button-assertive">
+                <button class="button button-clear button-assertive follow-course">
                     Follow
                 </button>
                 {{/if}}

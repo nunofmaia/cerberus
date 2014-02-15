@@ -26,6 +26,10 @@ Template.newAnswer.events({
         createNotification(usersIds, message, route);
         Meteor.call('addAnswer', answer._id);
         Router.go('question', template.data);
+    },
+    'click .button-cancel': function(e, t) {
+        console.log('cancel answer');
+        Router.go('question', t.data);
     }
 });
 

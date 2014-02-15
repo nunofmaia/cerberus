@@ -45,5 +45,8 @@ Template.courses.events({
     },
     'keyup #search': function(e, t) {
         Session.set('query', $(e.target).val());
+    },
+    'click #clear-search': function(e, t) {
+        Session.set('query', '');
     }
 });

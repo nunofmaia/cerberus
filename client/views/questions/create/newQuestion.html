@@ -1,16 +1,19 @@
 <template name="newQuestion">
-    <div class="question-creation">
-        <form action="{{pathFor 'question'}}">
-            <div class="form-element">
-                <label class="form-label" for="title">Title</label>
-                <input name="title" type="text" value="" placeholder="question's title" />
+    <header>
+            <div class="bar bar-header">
+                <a class="button button-clear button-assertive button-cancel">Cancel</a>
+                <div class="h1 title"></div>
+                <a id="ask-question" class="button button-clear button-assertive">Ask</a>
             </div>
-
-            <div class="form-element">
-                <label class="form-label" for="body">Question</label>
-                <textarea name="body" type="text" value="" />
-            </div>
-            <input type="submit" value="submit" class="btn" />
-        </form>
+    </header>
+    <div class="has-header scroll-content">
+        <div class="list">
+            <label class="item item-input">
+                <input name="title" type="text" value="" placeholder="Title" />
+            </label>
+          <label class="item item-input">
+            <textarea name="body" placeholder="Ask your question" rows="20"></textarea>
+          </label>
+        </div>
     </div>
 </template>

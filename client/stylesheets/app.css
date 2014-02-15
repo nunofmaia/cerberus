@@ -17,21 +17,21 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-transition: margin-left 0.5s ease;
-    transition: -webkit-transform 0.5s ease;
+    -webkit-transition: margin-left 0.5s ease-in-out;
+    transition: -webkit-transform 0.5s ease-in-out;
     overflow: hidden;
 }
 
-#menu {
+/*#menu {
     position: absolute;
     width: 60%;
     height: 100%;
     background-color: #ddd;
     z-index: 0;
-}
+}*/
 
 #container.slide {
-    -webkit-transform: translateX(60%);
+    -webkit-transform: translateX(270px);
     box-shadow: -10px 0 30px #ccc;
 }
 
@@ -71,6 +71,10 @@ header + div {
     background-color: white;
 }
 
+.content {
+    background-color: white;
+}
+
 .text-center {
     text-align: center;
 }
@@ -94,6 +98,7 @@ table td {
     border-radius: 100%;
     margin: 0 auto;
     border: 1px solid #ddd;
+    margin-top: 20px;
 }
 
 .mini-profile-image {
