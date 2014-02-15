@@ -1,18 +1,27 @@
 Template.question.helpers({
     authorName : function() {
-        return Meteor.users.findOne(this.authorId).profile.shortName;
+        var user = Meteor.users.findOne(this.authorId)
+        if (user) {
+            return user.profile.shortName;
+        }
     },
     courseName : function() {
-        return Courses.findOne( { _id : this.courseId  }).acronym;
+        var course = Courses.findOne( { _id : this.courseId  })
+        if (course) {
+            return course.acronym;
+        }
     },
     followed: function() {
     	var id = this._id;
-    	var found = _.find(Meteor.user().profile.followed_questions, function(questionID) {
-    		console.log(questionID, id);
-    		return questionID === id;
-    	});
+        var user = Meteor.user();
+        if (user) {
+        	var found = _.find(user.profile.followed_questions, function(questionID) {
+        		console.log(questionID, id);
+        		return questionID === id;
+        	});
 
-    	return found;
+        	return found;
+        }
     }
 });
 
