@@ -88,6 +88,27 @@ table td {
     padding: 8px;
 }
 
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.mini-profile-image {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    float: left;
+    border: 1px solid #ddd;
+}
+
 .profile-info .value {
     font-size: 32px;
     font-weight: 200;
