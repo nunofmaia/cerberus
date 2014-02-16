@@ -112,7 +112,7 @@ function specialAcron(name, acron) {
   }
   // var nameS = name.split(' ');
   // var temp = nameS[nameS.length - 1];
-  // if( temp.length < 3 | temp === 'III') {
+  // if( temp.length < 3 || temp === 'III') {
   //   special = special + ' ' + temp;
   // }
   return special;

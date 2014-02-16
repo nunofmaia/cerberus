@@ -130,6 +130,11 @@ table td {
     padding-bottom: 0;
 }
 
+.item-body pre {
+    font-family: inherit;
+    font-size: 14px;
+}
+
 .item.user-name {
     padding-bottom: 0;
 }
