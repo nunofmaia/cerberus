@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,700);
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Titillium Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #content {
@@ -139,4 +141,74 @@ table td {
     padding-bottom: 0;
 }
 
-#spinner { height: 500px }
+#logo {
+    background: url('/img/logo.png') no-repeat center center;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-size: contain;
+}
+
+.button.button-assertive {
+    background-color: #ff2d55;
+    color: #fff;
+    border-color: #DE2548;
+}
+
+.button.button-assertive:active, .button.button-outline.button-assertive:active {
+    background-color: #DE2548;
+}
+
+.button.button-assertive.button-clear {
+    color: #ff2d55;
+}
+
+.button.button-assertive.button-clear {
+    color: #DE2548;
+    background: none;
+}
+
+.button.button-outline.button-assertive {
+    color: #ff2d55;
+    border-color: #DE2548;
+}
+
+.bar.bar-assertive {
+    background-color: #ff2d55;
+}
+
+.bar > a {
+    font-family: inherit;
+}
+
+.button.icon-left::before {
+    font-family: 'Ionicons';
+}
+
+.navbar-toggle {
+    color: #ff2d55;
+}
+
+.navbar-toggle:hover, .navbar-toggle:active {
+    color: #DE2548;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h2 {
+    line-height: 21px;
+}
+
+small {
+    font-size: 11px;
+    text-transform: uppercase;
+}
