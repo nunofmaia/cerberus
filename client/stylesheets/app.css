@@ -212,3 +212,5 @@ small {
     font-size: 11px;
     text-transform: uppercase;
 }
+
+#spinner { height: 500px;}
