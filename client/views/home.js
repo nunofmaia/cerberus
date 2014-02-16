@@ -18,7 +18,19 @@ Template.home.helpers({
         }
     },
     courseName: function() {
-    	return Courses.findOne({_id: this.courseId}).specialAcronym;
+    	var course = Courses.findOne({_id: this.courseId})
+        if (course) {
+            return course.specialAcronym;
+        }
+    },
+    alertsTab: function() {
+        return Session.get('homeTab') === 'Alerts';
+    },
+    raqTab: function() {
+        return Session.get('homeTab') === 'RAQ';
+    },
+    rankingTab: function() {
+        return Session.get('homeTab') === 'Ranking';
     }
 });
 
@@ -32,5 +44,8 @@ Template.home.events({
     	} else {
         	Router.go('userProfile', { _id: this._id });
     	}
+    },
+    'click .button-bar .button': function(e, t) {
+        Session.set('homeTab', $(e.target).html());
     }
 });

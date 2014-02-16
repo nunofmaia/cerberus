@@ -5,6 +5,7 @@
             <div class="h1 title">Activity</div>
         </div>
     </header>
+    {{#if alertsTab}}
     <div class="bar bar-subheader">
       <div class="button-bar">
         <a class="button button-assertive">Alerts</a>
@@ -13,14 +14,24 @@
       </div>
     </div>
     <div class="has-subheader scroll-content content">
+    <div class="list">
     {{#each notifications}}
-        <div class="card notification">
-          <div class="item item-text-wrap">
+          <div class="item item-text-wrap notification">
             {{message}}
           </div>
-        </div>
         {{/each}}
-        <h1>Ranking</h1>
+    </div>
+    </div>
+    {{/if}}
+    {{#if rankingTab}}
+    <div class="bar bar-subheader">
+      <div class="button-bar">
+        <a class="button button-outline button-assertive">Alerts</a>
+        <a class="button button-outline button-assertive">RAQ</a>
+        <a class="button button-assertive">Ranking</a>
+      </div>
+    </div>
+    <div class="has-subheader scroll-content content">
             <div class="list">
             {{#each ranking}}
                 <a class="item ranking-person item-avatar" href="#">
@@ -30,7 +41,17 @@
                 </a>
             {{/each}}
             </div>
-        <h1>RAQ</h1>
+    </div>
+    {{/if}}
+    {{#if raqTab}}
+    <div class="bar bar-subheader">
+      <div class="button-bar">
+        <a class="button button-outline button-assertive">Alerts</a>
+        <a class="button button-assertive">RAQ</a>
+        <a class="button button-outline button-assertive">Ranking</a>
+      </div>
+    </div>
+    <div class="has-subheader scroll-content content">
         <div class="list">
         {{#each raq}}
             <a class="item raq-question" href="{{pathFor 'question'}}">
@@ -40,4 +61,5 @@
         {{/each}}
         </div>
     </div>
+    {{/if}}
 </template>
