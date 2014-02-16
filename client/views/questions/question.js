@@ -33,9 +33,10 @@ Template.question.events({
 		Meteor.call('unfollowQuestion', this._id);
 	},
     'click .button-back': function() {
-        var route = Session.get('previousRoute');
-        if (route) {
-            Session.set('previousRoute', null);
+        var routes = Session.get('previousRoutes');
+        if (routes) {
+            var route = routes.pop();
+            Session.set('previousRoutes', routes);
             Router.go(route.route, route.params);
         }
     }

@@ -39,11 +39,7 @@ Template.home.events({
         Router.go(this.route.template, this.route.params);
     },
     'click .ranking-person': function(e, t) {
-    	if(this._id === Meteor.userId()) {
-    		Router.go('profile', { _id: this._id });
-    	} else {
-        	Router.go('userProfile', { _id: this._id });
-    	}
+        Router.go('userProfile', { _id: this._id });
     },
     'click .button-bar .button': function(e, t) {
         Session.set('homeTab', $(e.target).html());

@@ -31,19 +31,31 @@
 <template name="userProfile">
     <header>
         <div class="bar bar-header">
-            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+            <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive button-back">Back</a>
             <div class="h1 title">Profile</div>
         </div>
     </header>
-    <div class="has-header scroll-content padding">
+    <div class="has-header scroll-content padding text-center">
 	{{#with user}}
+        <div class="profile-image" style="background: url({{photo}}) no-repeat center center; background-color: #fff;background-size: 100% 100%;"></div>
 	    <h1>{{profile.shortName}}</h1>
-	    <h5>{{profile.email}}</h5>
-	    <p>{{profile.points}} points,
-	        {{profile.questions.length}} questions,
-	        {{profile.answers.length}} answers,
-	        {{profile.ranking}} ranking
-	        </p>
+	    <h5>{{roles}}</h5>
+	    <table class="align-center profile-info">
+            <tbody>
+                <tr>
+                    <td class="value">{{profile.questions.length}}</td>
+                    <td class="value">{{profile.answers.length}}</td>
+                    <td class="value">{{profile.points}}</td>
+                    <td class="value">{{profile.ranking}}</td>
+                </tr>
+                <tr>
+                    <td class="description">questions</td>
+                    <td class="description">answers</td>
+                    <td class="description">points</td>
+                    <td class="description">ranking</td>
+                </tr>
+            </tbody>
+        </table>
     {{/with}}
     </div>
 </template>
