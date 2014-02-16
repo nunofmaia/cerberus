@@ -6,6 +6,9 @@ Template.newQuestion.events({
             body : $(template.find('[name=body]')).val(),
             authorId : Meteor.userId(),
             date : new Date(),
+            upVote : 0,
+            downVote : 0,
+            voters : [],
             courseId : template.data._id,
             followers: []
         }

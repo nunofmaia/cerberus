@@ -1,49 +1,59 @@
 <template name="question">
-    <header>
-              <div class="bar bar-header">
-                  <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive button-back">Back</a>
-                  <div class="h1 title">Question</div>
-              </div>
-      </header>
-    <div class="has-header scroll-content">
-      <div class="list card">
-
-        <div class="item">
-          <h2>{{title}}</h2>
-          <p>{{dateFromNow date}}</p>
-        </div>
-
-        <div class="item item-body">
-          <p>
-            {{body}}
-          </p>
-          <p>
-            <a href="#" class="subdued">{{authorName}}</a>
-            <a href="#" class="subdued">{{courseName}}</a>
-          </p>
-        </div>
-
-        <div class="item tabs tabs-secondary tabs-icon-left">
-          <a class="tab-item" href="{{pathFor 'newAnswer'}}">
-            <i class="icon ion-chatbox"></i>
-            Answer
-          </a>
-              {{#if followed}}
-          <a id="unfollow-question" class="tab-item" href="#">
-            <i class="icon ion-star"></i>
-            Following
-          </a>
-              {{else}}
-              <a id="follow-question" class="tab-item" href="#">
-            <i class="icon ion-star"></i>
-            Follow
-          </a>
-              {{/if}}
-        </div>
-
-      </div>
-      <div class="question-answers">
-          {{> answersList}}
-      </div>
+  <header>
+    <div class="bar bar-header">
+      <a class="button icon-left ion-ios7-arrow-left button-clear button-assertive button-back">Back</a>
+      <div class="h1 title">Question</div>
     </div>
+  </header>
+  <div class="has-header scroll-content">
+    <div class="list card">
+
+      <div class="item">
+        <h2>{{title}}</h2>
+        <p>{{dateFromNow date}}</p>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          {{body}}
+        </p>
+        <p>
+          <a href="#" class="subdued">{{authorName}}</a>
+          <a href="#" class="subdued">{{courseName}}</a>
+          <a href="#" class="subdued">{{upVote}} Nice</a>
+          <a href="#" class="subdued">{{downVote}} Pointless</a>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="{{pathFor 'newAnswer'}}">
+          <i class="icon ion-chatbox"></i>
+          Answer
+        </a>
+        <a id="upvote" class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Nice
+        </a>
+        <a id="downvote" class="tab-item" href="#">
+          <i class="icon ion-thumbsdown"></i>
+          Pointless
+        </a>
+        {{#if followed}}
+        <a id="unfollow-question" class="tab-item" href="#">
+          <i class="icon ion-star"></i>
+          Following
+        </a>
+        {{else}}
+        <a id="follow-question" class="tab-item" href="#">
+          <i class="icon ion-star"></i>
+          Follow
+        </a>
+        {{/if}}
+      </div>
+
+    </div>
+    <div class="question-answers">
+      {{> answersList}}
+    </div>
+  </div>
 </template>

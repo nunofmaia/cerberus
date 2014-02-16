@@ -38,5 +38,45 @@ Template.question.events({
             Session.set('previousRoute', null);
             Router.go(route.route, route.params);
         }
+    },
+    'click #upvote': function (e, t) {
+        e.preventDefault();
+        var userID = Meteor.userId();
+        if (!_.contains(this.voters, userID) && (userID !== this.authorId)) {
+            Questions.update({ _id: this._id }, { $inc: { upVote: 1 }, $push : { voters : userID } });
+            //notification
+            var message = Meteor.user().profile.shortName + ' voted your question up.';
+            var route = {
+                template: 'question',
+                params: {
+                    courseId: this.courseId,
+                    _id: this._id
+                }
+            };
+            var usersIds = [];
+            usersIds.push(this.authorId);
+            createNotification(usersIds, message, route);
+            Meteor.call('incPoints', this.authorId, 1);
+        }
+    },
+    'click #updown': function (e, t) {
+        e.preventDefault();
+        var userID = Meteor.userId();
+        if (!_.contains(this.voters, userID) && (userID !== this.authorId)) {
+            Questions.update({ _id: this._id }, { $inc: { upDown: 1 }, $push : { voters : userID } });
+            //notification
+            var message = Meteor.user().profile.shortName + ' voted your question down.';
+            var route = {
+                template: 'question',
+                params: {
+                    courseId: this.courseId,
+                    _id: this._id
+                }
+            };
+            var usersIds = [];
+            usersIds.push(this.authorId);
+            createNotification(usersIds, message, route);
+            Meteor.call('incPoints', this.authorId, -1);
+        }
     }
 });
