@@ -68,11 +68,13 @@ Template.answer.events({
         }
     },
     'click .user-name': function(e, t) {
-        var answer = t.data;
-        if(answer.authorId === Meteor.userId()) {
-            Router.go('profile', { _id: answer.authorId });
-        } else {
-            Router.go('userProfile', { _id: answer.authorId });
+        var question = Questions.findOne(this.questionId);
+        if (question) {
+            var history = Session.get('history');
+            var route = { template: 'question', params: { _id: question._id, courseId: question.courseId }}
+            history.push(route);
+            Session.set('history', history);
+            Router.go('userProfile', { _id: this.authorId });
         }
     },
     'click #accept-answer': function(e, t) {

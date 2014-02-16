@@ -36,14 +36,24 @@ Template.home.helpers({
 
 Template.home.events({
 	'click .notification': function(e, t) {
+        var history = Session.get('history') || [];
+        history.push(this.route);
+        Session.set('history', history);
         Router.go(this.route.template, this.route.params);
     },
     'click .ranking-person': function(e, t) {
-    	if(this._id === Meteor.userId()) {
-    		Router.go('profile', { _id: this._id });
-    	} else {
-        	Router.go('userProfile', { _id: this._id });
-    	}
+        var history = Session.get('history') || [];
+        var route = { template: 'home', params: {}};
+        history.push(route);
+        Session.set('history', history);
+        Router.go('userProfile', { _id: this._id });
+    },
+    'click .raq-question': function(e, t) {
+        var history = Session.get('history') || [];
+        var route = { template: 'home', params: {}};
+        history.push(route);
+        Session.set('history', history);
+        Router.go('question', { _id: this._id, courseId: this.courseId });
     },
     'click .button-bar .button': function(e, t) {
         Session.set('homeTab', $(e.target).html());
