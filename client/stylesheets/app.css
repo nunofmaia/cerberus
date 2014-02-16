@@ -138,3 +138,5 @@ table td {
 .item.user-name {
     padding-bottom: 0;
 }
+
+#spinner { height: 500px }
