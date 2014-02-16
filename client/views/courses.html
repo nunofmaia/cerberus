@@ -10,15 +10,25 @@
             {{/if}}
         </div>
     </header>
-    <div class="has-header scroll-content">
-        <div class="item item-input-inset">
+    <div class="bar bar-subheader">
+      <div class="item-input-inset" style="padding-top: 0;">
+                  <label class="item-input-wrapper">
+                      <input id="search" type="text" placeholder="Search" value="{{query}}">
+                  </label>
+                  <button id="clear-search" class="button button-small button-clear">
+                        Clear
+                  </button>
+              </div>
+    </div>
+    <div class="has-subheader scroll-content content">
+        <!-- <div class="item item-input-inset">
             <label class="item-input-wrapper">
                 <input id="search" type="text" placeholder="Search" value="{{query}}">
             </label>
             <button id="clear-search" class="button button-small button-clear">
                   Clear
             </button>
-        </div>
+        </div> -->
         <div class="list">
             {{#if searchedCourses}}
             <div class="item item-divider">
