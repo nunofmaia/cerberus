@@ -2,9 +2,16 @@ Template.answer.helpers({
     authorName : function() {
         return Meteor.users.findOne(this.authorId).profile.shortName;
     },
-    author: function() {
+    questionAuthor: function() {
         var question = Questions.findOne(this.questionId);
         return question.authorId === Meteor.userId();
+    },
+    answerAuthor: function() {
+        return this.authorId === Meteor.userId();
+    },
+    likeOrAccept: function() {
+        var question = Questions.findOne(this.questionId);
+        return question.authorId === Meteor.userId() | this.authorId !== Meteor.userId();
     },
     acceptedAnswer: function() {
         return this.accepted ? 'accepted-answer' : '';
