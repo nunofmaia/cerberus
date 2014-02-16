@@ -2,7 +2,7 @@ Template.newAnswer.events({
     'click #answer-question': function(e, template) {
         e.preventDefault();
         var body = $(template.find('[name=body]')).val();
-        if (body || body.search('^[ \t\n]*$') === -1) {
+        if (body.search('^[ \t\n]*$') === -1) {
             var answer = {
                 body: body,
                 authorId: Meteor.userId(),
