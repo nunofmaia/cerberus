@@ -1,0 +1,20 @@
+<template name="activityLoading">
+	<header>
+        <div class="bar bar-header">
+            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+            <div class="h1 title">Activity</div>
+        </div>
+    </header>
+    <div class="bar bar-subheader">
+      <div class="button-bar">
+        <a class="button button-assertive">Alerts</a>
+        <a class="button button-outline button-assertive">RAQ</a>
+        <a class="button button-outline button-assertive">Ranking</a>
+      </div>
+    </div>
+    <div class="has-subheader scroll-content content">
+        <div id="spinner">
+            {{> spinner}}
+        </div>
+    </div>
+</template>
