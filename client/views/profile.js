@@ -45,11 +45,12 @@ Template.userProfile.helpers({
 
 Template.userProfile.events({
     'click .button-back': function() {
-        var routes = Session.get('previousRoutes');
-        if (routes) {
-            var route = routes.pop();
-            Session.set('previousRoutes', routes);
-            Router.go(route.route, route.params);
+        var history = Session.get('history');
+        if (history) {
+            var route = history.pop();
+            Session.set('history', history);
+            console.log('going back');
+            Router.go(route.template, route.params);
         }
     }
 })

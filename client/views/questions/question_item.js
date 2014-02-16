@@ -7,3 +7,14 @@ Template.questionItem.helpers({
 		return Answers.find({ questionId: this._id }).fetch();
 	}
 });
+
+Template.questionItem.events({
+    'click .question-item': function(e, t) {
+        var history = Session.get('history');
+        var route = { template: 'questionsList', params: { _id: this.courseId }}
+        history.push(route);
+        Session.set('history', history);
+        console.log(this);
+        Router.go('question', this);
+    }
+});

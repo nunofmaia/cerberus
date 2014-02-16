@@ -12,10 +12,14 @@ Template.newQuestion.events({
 
         post._id = Questions.insert(post);
         Meteor.call('addQuestion', post._id);
+
+        var history = Session.get('history');
+        var route = { template: 'questionsList', params: { _id: template.data._id }}
+        history.push(route);
+        Session.set('history', history);
         Router.go('question', post);
     },
     'click .button-cancel': function(e, t) {
-        console.log('cancel answer');
         Router.go('questionsList', t.data);
     }
 });
