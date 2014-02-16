@@ -41,6 +41,7 @@ Meteor.methods({
           profile: person
         });
       } else {
+        Meteor.users.update({ _id: user._id}, { $set: { 'profile.photo': person.photo , 'profile.roles': person.roles }});
         if (user.profile.academicTerm !== currentTerm) {
           Meteor.users.update({ _id: user._id}, { $addToSet: { 'profile.courses': { $each: userCourses } }, academicTerm: currentTerm });
         }
