@@ -1,0 +1,14 @@
+<template name="questionsListLoading">
+    <header>
+        <div class="bar bar-header">
+            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+            <div class="h1 title">Questions</div>
+            <a href="{{pathFor 'newQuestion'}}" class="button button-clear button-assertive">New</a>
+        </div>
+    </header>
+    <div class="has-header scroll-content">
+        <div id="spinner">
+            {{> spinner}}
+        </div>
+    </div>
+</template>

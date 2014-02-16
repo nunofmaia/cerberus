@@ -1,3 +1,46 @@
+Meteor.publish('allCourses', function() {
+  return Courses.find();
+});
+
+Meteor.publish('userCourses', function(userId) {
+  var user = Meteor.users.findOne(userId);
+  if (user) {
+    return Courses.find({ _id: { $in: user.profile.courses }});
+  }
+});
+
+Meteor.publish('allQuestions', function() {
+  return Questions.find();
+});
+
+Meteor.publish('recentQuestions', function() {
+  return Questions.find({}, { sort: { 'profile.points': -1 }, limit: 10 });
+});
+
+Meteor.publish('courseQuestions', function(courseId) {
+  return Questions.find({ courseId: courseId });
+});
+
+Meteor.publish('allAnswers', function() {
+  return Answers.find();
+});
+
+Meteor.publish('questionAnswers', function(questionId) {
+  return Answers.find({ questionId: questionId });
+});
+
+Meteor.publish('allNotifications', function() {
+  return Notifications.find();
+});
+
+Meteor.publish('userNotifications', function(userId) {
+  return Notifications.find({ usersIds: userId }, { sort: { date: -1 } });
+});
+
+Meteor.publish('user', function(userId) {
+  return Meteor.users.findOne(userId);
+});
+
 Meteor.startup(function() {
     Fenix = new FenixClient();
     if (Courses.find().count() === 0) {

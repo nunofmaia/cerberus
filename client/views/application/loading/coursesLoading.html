@@ -1,0 +1,23 @@
+<template name="coursesLoading">
+    <header>
+        <div class="bar bar-header">
+            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+            <div class="h1 title">Courses</div>
+        </div>
+    </header>
+    <div class="bar bar-subheader">
+        <div class="item-input-inset" style="padding-top: 0;">
+            <label class="item-input-wrapper">
+                <input id="search" type="text" placeholder="Search" value="{{query}}">
+            </label>
+            <button id="clear-search" class="button button-small button-clear">
+                Clear
+            </button>
+        </div>
+    </div>
+    <div class="has-subheader scroll-content content">
+        <div id="spinner">
+            {{> spinner}}
+        </div>
+    </div>
+</template>
