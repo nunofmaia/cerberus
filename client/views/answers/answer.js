@@ -61,12 +61,7 @@ Template.answer.events({
         }
     },
     'click .user-name': function(e, t) {
-        var answer = t.data;
-        if(answer.authorId === Meteor.userId()) {
-            Router.go('profile', { _id: answer.authorId });
-        } else {
-            Router.go('userProfile', { _id: answer.authorId });
-        }
+        Router.go('userProfile', { _id: this.authorId });
     },
     'click #accept-answer': function(e, t) {
         Answers.update({ _id: this._id }, { $set: { accepted: true } });
