@@ -5,10 +5,10 @@ Template.question.helpers({
             return user.profile.shortName;
         }
     },
-    courseName : function() {
+    courseAcronym : function() {
         var course = Courses.findOne( { _id : this.courseId  })
         if (course) {
-            return course.acronym;
+            return course.specialAcronym;
         }
     },
     followed: function() {
