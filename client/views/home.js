@@ -3,7 +3,12 @@ Template.home.helpers({
         return Notifications.find({usersIds: Meteor.userId()}, {sort: {date: -1}} );
     },
     ranking: function() {
-    	return Meteor.users.find({},{sort: {'profile.points': -1}, limit: 10});
+        var rankings = Rankings.find({ }, {  sort : { points : -1}, limit : 10 }).fetch();
+        return  _.map(rankings, function(elem) {
+            var user = Meteor.users.findOne({ _id : elem.userId});
+            user.profile.points = elem.points;
+            return user;
+        });
     },
     raq: function() {
     	var user = Meteor.user();

@@ -66,8 +66,6 @@ Meteor.methods({
 
       _.extend(person, {
         shortName: shortName(person.name),
-        points: 0,
-        ranking: 0,
         questions: [],
         answers: [],
         courses: userCourses,
@@ -83,6 +81,8 @@ Meteor.methods({
           password: 'cerberus',
           profile: person
         });
+        var user = Meteor.users.findOne({username: person.username });
+        Rankings.insert( { points : 0, userId : user._id });
       } else {
         Meteor.users.update({ _id: user._id}, { $set: { 'profile.photo': person.photo , 'profile.roles': person.roles }});
         if (user.profile.academicTerm !== currentTerm) {
@@ -114,9 +114,9 @@ Meteor.methods({
     followCourse: function(courseID) {
       Meteor.users.update({ _id: Meteor.userId() }, { $push: { 'profile.courses': courseID } });
     },
-    incPoints: function(userId, points) {
-      var user = Meteor.users.findOne(userId);
-      Meteor.users.update({ _id: userId }, { $inc: { 'profile.points': points } });
+    incPoints: function(authorId, points) {
+      console.log("sadas");
+      Rankings.update({ userId : authorId }, { $inc: { 'points' : points } } );
     }
 });
 

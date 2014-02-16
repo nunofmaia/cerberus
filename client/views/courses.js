@@ -1,5 +1,3 @@
-
-
 Template.courses.helpers({
     courses: function() {
         var user = Meteor.user();
