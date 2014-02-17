@@ -23,7 +23,10 @@ Template.profile.helpers({
     points : function() {
         var user = Meteor.user();
         if (user) {
-    	    return Rankings.findOne({ userId : user._id }).points;
+    	    var rankings = Rankings.findOne({ userId : user._id })
+            if (rankings) {
+                return rankings.points;
+            }
         }
     },
     ranking : function() {
@@ -33,7 +36,6 @@ Template.profile.helpers({
     	    rankings  = _.map(rankings, function(elem) {
     	        return elem.userId;
     	    });
-    	    console.log("Array de Rankings", rankings);
     	    return _.indexOf(rankings, user._id, true) + 1;
         }
     }
@@ -71,8 +73,6 @@ Template.userProfile.helpers({
     	    rankings  = _.map(rankings, function(elem) {
     	        return elem.userId;
     	    });
-    	    console.log("Array de Rankings", rankings);
-    	    console.log("Index: ", _.indexOf(rankings, user._id, true));
     	    return _.indexOf(rankings, user._id, true) + 1;
         }
     }

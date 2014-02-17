@@ -10,14 +10,16 @@ Deps.autorun(function() {
 	if ( Questions.find({authorId: Meteor.userId()}).count() === 1) {
 		var badge = Badges.findOne({name: 'Student'});
 		var user = Meteor.user();
-		if(!_.contains(user.profile.badges, badge._id)) {
-			Meteor.users.update({ _id: Meteor.userId()}, { $addToSet: { 'profile.badges': badge._id } });
-	        var message = 'Congratulations! You have won the badge ' + badge.name + ': ' + badge.description;
-	        var route = {
-	            template: 'profile',
-	            params: { _id: Meteor.userId() }
-	        };
-	        createSelfNotification(message, route);
+		if (badge && user) {
+			if(!_.contains(user.profile.badges, badge._id)) {
+				Meteor.users.update({ _id: Meteor.userId()}, { $addToSet: { 'profile.badges': badge._id } });
+		        var message = 'Congratulations! You have won the badge ' + badge.name + ': ' + badge.description;
+		        var route = {
+		            template: 'profile',
+		            params: { _id: Meteor.userId() }
+		        };
+		        createSelfNotification(message, route);
+			}
 		}
 	}
 	if ( Questions.find({authorId: Meteor.userId()}).count() === 25) {

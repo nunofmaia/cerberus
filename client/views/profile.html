@@ -14,8 +14,8 @@
         <tr>
           <td class="value">{{currentUser.profile.questions.length}}</td>
           <td class="value">{{currentUser.profile.answers.length}}</td>
-          <td class="value">{{currentUser.profile.points}}</td>
-          <td class="value">{{currentUser.profile.ranking}}</td>
+          <td class="value">{{points}}</td>
+          <td class="value">{{ranking}}</td>
         </tr>
         <tr>
           <td class="description">questions</td>
@@ -24,7 +24,7 @@
           <td class="description">ranking</td>
         </tr>
       </tbody>
-      </table>    
+      </table>
     <div>
       <h4 class="badges-title">Badges</h4>
       {{> badgesList}}
@@ -60,6 +60,10 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+          <h4 class="badges-title">Badges</h4>
+          {{> badgesList}}
+        </div>
     {{/with}}
     </div>
 </template>

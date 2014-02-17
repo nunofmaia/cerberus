@@ -53,6 +53,10 @@ Meteor.publish('allUsers', function() {
   return Meteor.users.find();
 });
 
+Meteor.publish('allBadges', function() {
+  return Badges.find();
+});
+
 Meteor.startup(function() {
     Fenix = new FenixClient();
     if (Courses.find().count() === 0) {
