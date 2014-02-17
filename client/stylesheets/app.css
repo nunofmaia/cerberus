@@ -138,3 +138,19 @@ table td {
 .item.user-name {
     padding-bottom: 0;
 }
+
+.badges {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.badges .item {
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.badges-title {
+    font-weight: 300;
+    text-transform: uppercase;
+}
