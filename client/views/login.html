@@ -1,6 +1,10 @@
 <template name="login">
     <div class="text-center">
         <div id="logo"></div>
+        {{#if loggingIn}}
+            {{> spinner}}
+        {{else}}
         <a href="{{authUrl}}" class="button button-stable button-outline">Sign in with FenixEdu</a>
+        {{/if}}
     </div>
 </template>
