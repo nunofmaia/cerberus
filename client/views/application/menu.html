@@ -6,7 +6,12 @@
         </header>
         <div class="has-header has-footer scroll-content">
             <div class="list">
-            	<a href="{{pathFor 'home'}}" class="item">Activity</a>
+            	<a href="{{pathFor 'home'}}" class="item">
+                    Activity
+                    {{#if hasAlerts}}
+                    <span class="badge badge-assertive">{{alerts}}</span>
+                    {{/if}}
+                </a>
             	<a href="{{pathFor 'profile'}}" class="item">Profile</a>
             	<a href="{{pathFor 'courses'}}" class="item">Courses</a>
                 <li class="item item-divider">Following</li>

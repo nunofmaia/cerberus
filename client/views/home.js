@@ -37,14 +37,19 @@ Template.home.helpers({
     },
     rankingTab: function() {
         return Session.get('homeTab') === 'Ranking';
+    },
+    unseen: function() {
+        return this.read? '' : 'unread';
     }
 });
 
 Template.home.events({
 	'click .notification': function(e, t) {
         var history = Session.get('history') || [];
-        history.push(this.route);
+        var route = { template: 'home', params: {} };
+        history.push(route);
         Session.set('history', history);
+        Notifications.update(this._id, { $set: { read: true } });
         Router.go(this.route.template, this.route.params);
     },
     'click .ranking-person': function(e, t) {
@@ -63,5 +68,12 @@ Template.home.events({
     },
     'click .button-bar .button': function(e, t) {
         Session.set('homeTab', $(e.target).html());
+    },
+    'click #view-alerts': function(e, t) {
+        var history = Session.get('history') || [];
+        var route = { template: 'home', params: {}};
+        history.push(route);
+        Session.set('history', history);
+        Router.go('alerts');
     }
 });

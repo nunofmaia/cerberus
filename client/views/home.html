@@ -16,10 +16,14 @@
     <div class="has-subheader scroll-content content">
     <div class="list">
     {{#each notifications}}
-          <div class="item item-text-wrap notification">
+          <div class="item item-text-wrap notification {{unseen}}">
             {{message}}
+            <span class="notification-date">{{dateFromNow date}}</span>
           </div>
         {{/each}}
+        <button id="view-alerts" class="button button-full button-assertive button-clear">
+          View all
+        </button>
     </div>
     </div>
     {{/if}}

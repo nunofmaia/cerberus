@@ -1,6 +1,9 @@
 Template.answer.helpers({
     authorName : function() {
-        return Meteor.users.findOne(this.authorId).profile.shortName;
+        var user = Meteor.users.findOne(this.authorId)
+        if (user) {
+            return user.profile.shortName;
+        }
     },
     questionAuthor: function() {
         var question = Questions.findOne(this.questionId);
