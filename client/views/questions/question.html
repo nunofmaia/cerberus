@@ -10,7 +10,7 @@
 
         <div class="item">
           <h2>{{title}}</h2>
-          <p>{{courseAcronym}} &middot; {{dateFromNow date}}</p>
+          <p>{{courseAcronym}} &middot; {{authorName}} &middot; {{dateFromNow date}}</p>
         </div>
 
       <div class="item item-body">
@@ -18,10 +18,8 @@
           {{body}}
         </p>
         <p>
-          <a href="#" class="subdued">{{authorName}}</a>
-          <a href="#" class="subdued">{{courseName}}</a>
-          <a href="#" class="subdued">{{upVote}} Nice</a>
-          <a href="#" class="subdued">{{downVote}} Pointless</a>
+          <a href="#" class="subdued">{{upVote}} Great</a>
+          <a href="#" class="subdued">{{downVote}} Google it!</a>
         </p>
       </div>
 
@@ -32,11 +30,11 @@
         </a>
         <a id="upvote" class="tab-item" href="#">
           <i class="icon ion-thumbsup"></i>
-          Nice
+          Great
         </a>
         <a id="downvote" class="tab-item" href="#">
           <i class="icon ion-thumbsdown"></i>
-          Pointless
+          Google it!
         </a>
         {{#if followed}}
         <a id="unfollow-question" class="tab-item" href="#">
