@@ -11,7 +11,7 @@ Template.newAnswer.events({
                 upVote : 0,
                 downVote : 0,
                 voters : [],
-                accepted: false
+                accepted: 0
             }
 
             var message = Meteor.user().profile.shortName + ' answered to the question ' + template.data.title + '.';

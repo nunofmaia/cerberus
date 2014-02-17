@@ -81,7 +81,7 @@ Template.answer.events({
         }
     },
     'click #accept-answer': function(e, t) {
-        Answers.update({ _id: this._id }, { $set: { accepted: true } });
+        Answers.update({ _id: this._id }, { $set: { accepted: 1 } });
         Meteor.call('incPoints', this.authorId, 10);
         //notification
         var usersIds = [];
@@ -98,7 +98,7 @@ Template.answer.events({
         createNotification(usersIds, message, route);
     },
     'click #unaccept-answer': function(e, t) {
-        Answers.update({ _id: this._id }, { $set: { accepted: false } });
+        Answers.update({ _id: this._id }, { $set: { accepted: 0 } });
         Meteor.call('incPoints', this.authorId, -10);
         //notification
         var usersIds = [];
