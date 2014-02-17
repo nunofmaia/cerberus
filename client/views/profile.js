@@ -56,6 +56,22 @@ Template.userProfile.helpers({
             return roles.join(', ');
         }
 
+    },
+    points : function() {
+        var user = Meteor.user();
+        if (user) {
+    	    return Rankings.findOne({ userId : user._id }).points;
+        }
+    },
+    ranking : function() {
+        var user = Meteor.user();
+        if (user) {
+    	    var rankings = Rankings.find({}, { sort : { points : -1 } }).fetch();
+    	    rankings  = _.map(rankings, function(elem) {
+    	        return elem.userId;
+    	    });
+    	    return _.indexOf(rankings, user._id, true) + 1;
+        }
     }
 });
 

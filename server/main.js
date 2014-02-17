@@ -41,6 +41,10 @@ Meteor.publish('user', function(userId) {
   return Meteor.users.find(userId);
 });
 
+Meteor.publish('rankings', function() {
+  return Rankings.find();
+});
+
 Meteor.startup(function() {
     Fenix = new FenixClient();
     if (Courses.find().count() === 0) {
@@ -115,7 +119,6 @@ Meteor.methods({
       Meteor.users.update({ _id: Meteor.userId() }, { $push: { 'profile.courses': courseID } });
     },
     incPoints: function(authorId, points) {
-      console.log("sadas");
       Rankings.update({ userId : authorId }, { $inc: { 'points' : points } } );
     }
 });
