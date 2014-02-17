@@ -1,31 +1,35 @@
 <template name="profile">
-    <header>
-        <div class="bar bar-header">
-            <button class="button button-icon icon ion-navicon navbar-toggle"></button>
-            <div class="h1 title">Profile</div>
-        </div>
-    </header>
-    <div class="has-header scroll-content padding text-center">
-        <div class="profile-image" style="background: url({{photo}}) no-repeat center center; background-color: #fff;background-size: 100% 100%;"></div>
-        <h1>{{currentUser.profile.shortName}}</h1>
-        <h5>{{roles}}</h5>
-        <table class="align-center profile-info">
-            <tbody>
-                <tr>
-                    <td class="value">{{currentUser.profile.questions.length}}</td>
-                    <td class="value">{{currentUser.profile.answers.length}}</td>
-                    <td class="value">{{points}}</td>
-                    <td class="value">{{ranking}}</td>
-                </tr>
-                <tr>
-                    <td class="description">questions</td>
-                    <td class="description">answers</td>
-                    <td class="description">points</td>
-                    <td class="description">ranking</td>
-                </tr>
-            </tbody>
-        </table>
+  <header>
+    <div class="bar bar-header">
+      <button class="button button-icon icon ion-navicon navbar-toggle"></button>
+      <div class="h1 title">Profile</div>
     </div>
+  </header>
+  <div class="has-header scroll-content padding text-center">
+    <div class="profile-image" style="background: url({{photo}}) no-repeat center center; background-color: #fff;background-size: 100% 100%;"></div>
+    <h1>{{currentUser.profile.shortName}}</h1>
+    <h5>{{roles}}</h5>
+    <table class="align-center profile-info">
+      <tbody>
+        <tr>
+          <td class="value">{{currentUser.profile.questions.length}}</td>
+          <td class="value">{{currentUser.profile.answers.length}}</td>
+          <td class="value">{{points}}</td>
+          <td class="value">{{ranking}}</td>
+        </tr>
+        <tr>
+          <td class="description">questions</td>
+          <td class="description">answers</td>
+          <td class="description">points</td>
+          <td class="description">ranking</td>
+        </tr>
+      </tbody>
+      </table>
+    <div>
+      <h4 class="badges-title">Badges</h4>
+      {{> badgesList}}
+    </div>
+  </div>
 </template>
 
 <template name="userProfile">
@@ -56,6 +60,10 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+          <h4 class="badges-title">Badges</h4>
+          {{> badgesList}}
+        </div>
     {{/with}}
     </div>
 </template>

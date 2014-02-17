@@ -16,7 +16,6 @@ Template.question.helpers({
         var user = Meteor.user();
         if (user) {
         	var found = _.find(user.profile.followed_questions, function(questionID) {
-        		console.log(questionID, id);
         		return questionID === id;
         	});
 

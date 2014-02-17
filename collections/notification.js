@@ -20,3 +20,17 @@ createNotification = function(usersIds, message, route) {
 	}
 };
 
+createSelfNotification = function(message, route) {
+	var users = [];
+	users.push(Meteor.userId());
+	if (users.length > 0) {
+		Notifications.insert({
+			usersIds: users,
+			message: message,
+			route: route,
+            date : new Date(),
+			read: false,
+			seen: false
+		});
+	}
+};
