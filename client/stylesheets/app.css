@@ -221,7 +221,7 @@ small {
     text-transform: uppercase;
 }
 
-#spinner { height: 500px;}
+#spinner { margin-top: 250px;}
 
 .notification.unread {
     background-color: #FFFCFE;
