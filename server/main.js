@@ -45,6 +45,10 @@ Meteor.publish('rankings', function() {
   return Rankings.find();
 });
 
+Meteor.publish('allUsers', function() {
+  return Meteor.users.find();
+});
+
 Meteor.startup(function() {
     Fenix = new FenixClient();
     if (Courses.find().count() === 0) {
