@@ -6,6 +6,7 @@ Template.home.helpers({
         var rankings = Rankings.find({ }, {  sort : { points : -1}, limit : 10 }).fetch();
         return  _.map(rankings, function(elem) {
             var user = Meteor.users.findOne({ _id : elem.userId});
+            console.log("cenas ", user)
             user.profile.points = elem.points;
             return user;
         });
