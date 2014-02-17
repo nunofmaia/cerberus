@@ -165,6 +165,14 @@ table td {
     color: #ff2d55;
 }
 
+.badge {
+    line-height: 13px;
+}
+
+.badge.badge-assertive {
+    background-color: #ff2d55;
+}
+
 .button.button-assertive.button-clear {
     color: #DE2548;
     background: none;
@@ -214,3 +222,12 @@ small {
 }
 
 #spinner { height: 500px;}
+
+.notification.unread {
+    background-color: #FFFCFE;
+}
+
+.notification-date {
+    color: #666;
+    font-size: 12px;
+}
