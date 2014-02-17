@@ -58,6 +58,7 @@ Meteor.startup(function() {
     if (Courses.find().count() === 0) {
       processCourses();
     }
+    processBadges();
 });
 
 Meteor.methods({
@@ -153,6 +154,49 @@ function processCourses() {
     });
   });
     console.log('courses done');
+}
+
+function processBadges() {
+  Badges.insert({
+    name: 'Student',
+    description: 'First asked question.'
+  });
+  Badges.insert({
+    name: 'Publisher',
+    description: 'You have asked 25 questions.'
+  });
+  Badges.insert({
+    name: 'Philosopher',
+    description: 'You have asked 100 questions.'
+  });
+  Badges.insert({
+    name: 'Newbie',
+    description: 'First answer.'
+  });
+  Badges.insert({
+    name: 'Teacher',
+    description: 'You have answered 25 times.'
+  });
+  Badges.insert({
+    name: 'Expert',
+    description: 'You have answered 100 times.'
+  });
+  Badges.insert({
+    name: 'Popular',
+    description: 'Your question has been followed by 25 people.'
+  });
+  Badges.insert({
+    name: 'Famous',
+    description: 'Your question has been followed by 50 people.'
+  });
+  Badges.insert({
+    name: 'Cerberus',
+    description: 'Your answer has been voted up 100 times.'
+  });
+  Badges.insert({
+    name: 'Essencial',
+    description: 'Your question has been voted up 50 times.'
+  });
 }
 
 function shortName(name) {
