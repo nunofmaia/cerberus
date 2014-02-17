@@ -84,7 +84,6 @@ Template.userProfile.events({
         if (history) {
             var route = history.pop();
             Session.set('history', history);
-            console.log('going back');
             Router.go(route.template, route.params);
         }
     }

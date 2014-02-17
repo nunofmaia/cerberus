@@ -33,8 +33,12 @@ Meteor.publish('allNotifications', function() {
   return Notifications.find();
 });
 
-Meteor.publish('userNotifications', function(userId) {
+Meteor.publish('recentAlerts', function(userId) {
   return Notifications.find({ usersIds: userId }, { sort: { date: -1 } });
+});
+
+Meteor.publish('userAlerts', function(userId) {
+  return Notifications.find({ usersIds: userId }, { sort: { date: -1 }, limit: 100 });
 });
 
 Meteor.publish('user', function(userId) {
